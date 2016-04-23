@@ -1,3 +1,6 @@
+[![](https://imagelayers.io/badge/satblip/niko-home-control-rest-api:latest.svg)](https://imagelayers.io/?images=satblip/niko-home-control-rest-api:latest 'Get your own badge on imagelayers.io') [![js-semistandard-style](https://img.shields.io/badge/code%20style-semistandard-brightgreen.svg?style=flat-square)](https://github.com/Flet/semistandard) [![bitHound Code](https://www.bithound.io/github/satblip/niko-home-control-rest-api/badges/code.svg)](https://www.bithound.io/github/satblip/niko-home-control-rest-api)
+
+
 # Rest API based on NIKO Home Control NPM Module
 
 [NPM Module](https://github.com/satblip/niko-home-control)
