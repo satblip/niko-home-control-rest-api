@@ -1,0 +1,9 @@
+api:
+  build: .
+  ports:
+    - "14100:3000"
+  volumes:
+    - ./src:/var/www/src
+    - ./config:/var/www/config
+    - ./index.js:/var/www/index.js
+    - ./package.json:/var/www/package.json
