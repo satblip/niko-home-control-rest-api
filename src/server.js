@@ -8,6 +8,19 @@ var bodyParser = require('body-parser');
 
 var config = require('config');
 
+app.use(function (req, res, next) {
+  req.rawBody = '';
+  req.setEncoding('utf8');
+
+  req.on('data', function (chunk) {
+    req.rawBody += chunk;
+  });
+
+  req.on('end', function () {
+    next();
+  });
+});
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
@@ -49,11 +62,27 @@ app.get('/actions', function (req, res) {
     });
 });
 
-app.post('/actions/:id/:value', function (req, res) {
+app.get('/actions/:id', function (req, res) {
   var params = req.params;
 
   niko
-    .executeActions(params.id, params.value)
+    .listActions()
+    .then(function (response) {
+      res.status(200).send(response.data[params.id].value1.toString());
+    })
+    .catch(function (error) {
+      log.error('bad', error);
+      res.status(500).json(responseFormatter.error(error));
+    });
+});
+
+app.post('/actions/:id', function (req, res) {
+  var params = req.params;
+
+  var value = req.rawBody;
+
+  niko
+    .executeActions(params.id, parseInt(value, 0))
     .then(function (response) {
       res.status(200).json(responseFormatter.success(response));
     })

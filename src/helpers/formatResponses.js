@@ -1,7 +1,8 @@
-var success = function (data) {
+var success = function (response) {
   return {
     success: true,
-    data: data
+    cmd: response.cmd,
+    data: response.data
   };
 };
 
