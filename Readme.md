@@ -53,3 +53,5 @@ Returns the liste of available actions
 `POST /actions/:id/:value`
 
 Post a value on a specific action
+
+And, for the demo, in the console, you'll receive live status from the controller

@@ -12,4 +12,4 @@ WORKDIR /var/www
 
 RUN npm install
 
-CMD ["node", "index.js"]
+CMD ["npm", "start"]

@@ -31,7 +31,16 @@ var responseFormatter = require('./helpers/formatResponses');
 niko.init({
   ip: config.niko.homeControl.ip,
   port: config.niko.homeControl.port,
-  timeout: config.niko.homeControl.timeout
+  timeout: config.niko.homeControl.timeout,
+  events: true
+});
+
+niko.events.on('listactions', (data) => {
+  console.log(data, 'actions');
+});
+
+niko.events.on('getlive', (data) => {
+  console.log(data, 'live');
 });
 
 app.get('/', function (req, res) {

@@ -1,7 +1,7 @@
 var env = process.env;
 
 module.exports = {
-  httpPort: env.PORT || 3000,
+  httpPort: env.PORT || 14100,
   niko: {
     homeControl: {
       ip: env.NIKO_HC_IP,
